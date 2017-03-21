@@ -14,9 +14,9 @@ public class Paddle : MonoBehaviour {
 		//Set variable for current position
 		Vector3 paddlePos = new Vector3 (8f, this.transform.position.y, 0f);
 		//Get mouse position
-		float mousePos = Input.mousePosition.x / Screen.width * 16;
+		float mousePos = Input.mousePosition.x / Screen.width * 10;
 		//Set new mouse X position
-		paddlePos.x = Mathf.Clamp(mousePos-8.5f, -5.5f, 5.5f);
+		paddlePos.x = Mathf.Clamp(mousePos-5.5f, -2.5f, 2.9f);
 		//Change paddle to match new X position
 		this.transform.position = paddlePos;
 	}
