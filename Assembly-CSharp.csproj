@@ -47,10 +47,16 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Ball.cs" />
+     <Compile Include="Assets\Scripts\BasePowerUp.cs" />
      <Compile Include="Assets\Scripts\Brick.cs" />
+     <Compile Include="Assets\Scripts\ChangePaddleSize.cs" />
+     <Compile Include="Assets\Scripts\ExtraBall.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\LevelLoader.cs" />
      <Compile Include="Assets\Scripts\Lose.cs" />
      <Compile Include="Assets\Scripts\Paddle.cs" />
+     <Compile Include="Assets\Scripts\PowerUpDrop.cs" />
+     <Compile Include="Assets\Scripts\Wall.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

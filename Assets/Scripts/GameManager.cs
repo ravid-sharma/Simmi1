@@ -24,7 +24,11 @@ public class GameManager : MonoBehaviour {
 	private int minutes;
 	private int seconds;
 	public string formattedTime;
+	private Text feedback;
 	public Text text;
+	public GameObject restartButton;
+	public GameObject mainMenuButton;
+	public GameObject buttonBackground;
 	// Use this for initialization
 	void Start () {
 		Time.timeScale=1;
@@ -33,9 +37,9 @@ public class GameManager : MonoBehaviour {
 		//Find all the balls in this scene
 		allBalls = FindObjectsOfType(typeof(Ball)) as Ball[];
 		paddle = GameObject.FindObjectOfType<Paddle>();
-		print ("Bricks:" + allBricks.Length);
-		print ("Balls:" + allBalls.Length);
-		print ("Paddle" + paddle);
+		//print ("Bricks:" + allBricks.Length);
+		//print ("Balls:" + allBalls.Length);
+		//print ("Paddle" + paddle);
 		//Change start text
 		ChangeText ("Click To Begin");
 		//Prepare the start of the level
@@ -74,7 +78,7 @@ public class GameManager : MonoBehaviour {
 			break;
 			//Both cases do the same: restart the game
 		case GameState.Failed:
-			print ("Gamestate Failed!");
+			//print ("Gamestate Failed!");
 			ChangeText ("You Lose :(");
 			break;
 		case GameState.Completed:
@@ -87,12 +91,18 @@ public class GameManager : MonoBehaviour {
 			break;
 		}
 	}
+	public void EnableButtons () {
+		//Enable buttons for when the player loses
+		restartButton.SetActive (true);
+		mainMenuButton.SetActive (true);
+		buttonBackground.SetActive (true);
+	}
 	public void ChangeText (string text) {
 		//Find Canvas and modify text
 		GameObject canvas = GameObject.Find("Canvas");
 		Text[] textValue = canvas.GetComponentsInChildren<Text>();
 		textValue[0].text = text;
-		print ("Inside change text method");
+		//print ("Inside change text method");
 	}
 	public void SwitchState(GameState newState)
 	{
