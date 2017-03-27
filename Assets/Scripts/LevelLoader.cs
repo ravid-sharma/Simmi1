@@ -5,5 +5,11 @@ public class LevelLoader : MonoBehaviour {
 	public void LoadScene (int level)
 	{
 		Application.LoadLevel(level);
+		//print ("Loading Scene" + level);
+	}
+	public void EndGame ()
+	{
+		Application.Quit();
+		print ("Game Ended");
 	}
 }

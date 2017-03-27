@@ -1,7 +1,6 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
 public class Brick : MonoBehaviour {
 	public int maxHits;
 	public int timesHit;
@@ -12,6 +11,7 @@ public class Brick : MonoBehaviour {
 	public float MaxPitch = 1.3F;
 	//Make the current pitch value global
 	public static float pitch = 1;
+	public Animator anim;
 	//Falling variables
 	public bool FallDown = false;
 	[HideInInspector]
@@ -20,6 +20,7 @@ public class Brick : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		timesHit = 0;
+		anim = this.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -44,7 +45,7 @@ public class Brick : MonoBehaviour {
 			//Play the Woggle animation
 			//GetComponent<Animation> ().Play ();
 			//Wait here for the length of the Woggle animation
-			yield return new WaitForSeconds (1);
+			yield return new WaitForSeconds (2);
 			//Animation Woggle has finished, now decide what to do, falldown or just disappear
 			if (FallDown) {
 				//print ("Falling!");
@@ -73,6 +74,8 @@ public class Brick : MonoBehaviour {
 		//GetComponent<AudioSource>().pitch = pitch;
 		//Play it once for this collision hit
 		GetComponent<AudioSource>().PlayOneShot(Sound);
+		anim.SetBool ("Idle", false);
+		anim.SetBool ("Die", true);
 		StartCoroutine(OnCollisionExit2D(Col));
 	}
 }
