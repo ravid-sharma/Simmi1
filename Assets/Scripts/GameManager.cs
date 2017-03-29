@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour {
 				//Display Time
 				//print(formattedTime);
 				//Change start text
-				ChangeText ("Time: "+formattedTime);
+				ChangeText (" ");
 				bool allBlocksDestroyed = false;
 				//Are there no balls left?
 				if (FindObjectOfType(typeof(Ball)) == null)
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour {
 			//Both cases do the same: restart the game
 		case GameState.Failed:
 			//print ("Gamestate Failed!");
-			ChangeText ("You Lose :(");
+			ChangeText ("You Lose");
 			break;
 		case GameState.Completed:
 			bool allBlocksDestroyedFinal = false;
@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour {
 		textValue[0].text = text;
 		//print ("Inside change text method");
 	}
+
 	public void SwitchState(GameState newState)
 	{
 		currentState = newState;

@@ -10,6 +10,6 @@ public class LevelLoader : MonoBehaviour {
 	public void EndGame ()
 	{
 		Application.Quit();
-		print ("Game Ended");
+		//print ("Game Ended");
 	}
 }
